@@ -1,0 +1,239 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 7,
+    "passes": 7,
+    "pending": 0,
+    "failures": 0,
+    "start": "2024-08-11T19:33:51.018Z",
+    "end": "2024-08-11T19:33:51.209Z",
+    "duration": 191,
+    "testsRegistered": 7,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "94cdf804-fd86-4c17-a7bb-075bd3c18e81",
+      "title": "",
+      "fullFile": "/home/gaian/Desktop/New Folder 1/Node JS Api/test/api_test.js",
+      "file": "/test/api_test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+          "title": "Api Tests",
+          "fullFile": "/home/gaian/Desktop/New Folder 1/Node JS Api/test/api_test.js",
+          "file": "/test/api_test.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Api Tests\"",
+              "fullTitle": "Api Tests \"before all\" hook in \"Api Tests\"",
+              "timedOut": false,
+              "duration": 31,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "({expect} = await import(\"chai\"))",
+              "err": {},
+              "uuid": "8ac69e6e-157e-4eaf-ac89-55ffb6c9de73",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "should retrive all resources",
+              "fullTitle": "Api Tests should retrive all resources",
+              "timedOut": false,
+              "duration": 72,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).get(\"/resource\")\n        expect(res.status).to.equal(200)\n        expect(res.body).to.be.an(\"object\")",
+              "err": {},
+              "uuid": "db91ab13-122f-46e3-abf6-1e7de2bb4ae0",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should create a new reource",
+              "fullTitle": "Api Tests should create a new reource",
+              "timedOut": false,
+              "duration": 37,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const newResource = {name:\"Resource 3\",type:\"Type C\"}\n        const res = await request(app).post(\"/resource\").send(newResource)\n        expect(res.status).to.equal(201)\n        expect(res.body).to.have.property(\"id\")",
+              "err": {},
+              "uuid": "6386e883-3957-4327-a5e3-a59631eeb5f8",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should delete the resource by id",
+              "fullTitle": "Api Tests should delete the resource by id",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).delete(\"/resource/1\")\n        expect(res.status).to.equal(200)\n        expect(res.body).to.have.property(\"message\", \"Resource deleted\")",
+              "err": {},
+              "uuid": "c21beb7e-692f-47f9-8042-923837fcc2aa",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should return 404 when deleting an non-existing resource",
+              "fullTitle": "Api Tests should return 404 when deleting an non-existing resource",
+              "timedOut": false,
+              "duration": 6,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).delete(\"/resource/80\")\n        expect(res.status).to.equal(404)\n        expect(res.body).to.have.property(\"error\", \"Resource not found\")",
+              "err": {},
+              "uuid": "b27c01b8-6e8b-4478-96c9-e9f123fd3232",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should access the secure resource with a valid auth token",
+              "fullTitle": "Api Tests should access the secure resource with a valid auth token",
+              "timedOut": false,
+              "duration": 8,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).get(\"/secure-resource\").set(\"Authorization\", \"Bearer valid_token\")\n        expect(res.status).to.equal(200)\n        expect(res.body).to.have.property(\"message\", \"Secure resource accessed\")",
+              "err": {},
+              "uuid": "d07daaa0-fd37-49ec-9c3a-cdc37f8873dc",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should not access the secure resource with an invalid auth token",
+              "fullTitle": "Api Tests should not access the secure resource with an invalid auth token",
+              "timedOut": false,
+              "duration": 5,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).get(\"/secure-resource\").set(\"Authorization\", \"Bearer jhkdsksdsah\")\n        expect(res.status).to.equal(401)\n        expect(res.body).to.have.property(\"error\", \"Authentication required\")",
+              "err": {},
+              "uuid": "37b3baca-47b0-40d3-a052-4e0448a4e1dc",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "should get a xml response",
+              "fullTitle": "Api Tests should get a xml response",
+              "timedOut": false,
+              "duration": 9,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const res = await request(app).get(\"/xml-response\")\n        expect(res.status).to.equal(200)\n        expect(res.header['content-type']).to.include(\"application/xml\")\n        expect(res.text).to.have.include(\"<resource>\")",
+              "err": {},
+              "uuid": "6f7d4e9a-0a01-4fa5-af87-c69d35a39c77",
+              "parentUUID": "fef2e2cf-7019-4872-a2d0-4065edf2500e",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "db91ab13-122f-46e3-abf6-1e7de2bb4ae0",
+            "6386e883-3957-4327-a5e3-a59631eeb5f8",
+            "c21beb7e-692f-47f9-8042-923837fcc2aa",
+            "b27c01b8-6e8b-4478-96c9-e9f123fd3232",
+            "d07daaa0-fd37-49ec-9c3a-cdc37f8873dc",
+            "37b3baca-47b0-40d3-a052-4e0448a4e1dc",
+            "6f7d4e9a-0a01-4fa5-af87-c69d35a39c77"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 143,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "10.7.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "reports",
+        "reportFileName": "report",
+        "overwrite": "true",
+        "html": "true",
+        "json": "true"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

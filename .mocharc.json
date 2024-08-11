@@ -1,0 +1,10 @@
+{
+    "reporter": "mochawesome",
+    "reporterOptions": [
+        "reportDir=reports",
+        "reportFileName=report",
+        "overwrite=true",
+        "html=true",
+        "json=true"
+    ]
+}
