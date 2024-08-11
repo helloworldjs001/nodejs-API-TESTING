@@ -25,7 +25,7 @@ jobs:
               run: mkdir -p reports
 
             - name: Run Tests
-              run: npx mocha --reporter mochawesome --reporter-options reportDir=reports , reportFilename=report --exit
+              run: npx mocha --reporter mochawesome --reporter-options reportDir=reports,reportFilename=report --exit
 
             - name: Upload Mocha Report
               uses: actions/upload-artifact@v3
